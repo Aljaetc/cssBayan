@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
+
+* {margin: 0; padding: 0}
+
+label {
+    display: grid;
+    min-height: 3em;
+    padding: .8em 1em 1.3em;
+    border-bottom: 1px solid gray;
+    border-radius: 1em;
+    grid-template-areas:
+                "text text text text text . arrow"
+                "img img img img img img img";
+    grid-template-columns: repeat(6, 1fr) 40px;
+    place-items: center;
+}
+
+label p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    grid-area: text;
+    padding-bottom: .8em;
+}
+
+label img {
+    display: block;
+    width: 80%;
+    grid-area: img;
+}
+
+label svg {
+    width: 16px;
+    height: 16px;
+    grid-area: arrow;
+}
+
