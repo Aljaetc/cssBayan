@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
+
+html, body {margin: 0; padding: 0; width: 100%;}
+
+.bayan {
+    margin: 0 auto;
+    max-width: 30em;
+    background: lightgray;
+    padding: 0 5%;
+    border: 3px solid darkgray;
+    border-radius: 1em;
+}
+
+
+label {
+    display: grid;
+    /* min-height: 3em; */
+    padding: .8em 1em;
+    border-bottom: 1px solid gray;
+    grid-template-areas:
+                "text . arrow"
+                "img img img";
+    grid-template-columns: 1fr 1em 1em;
+    place-items: center;
+}
+
+label:last-child {
+    border: none;
+}
+
+label p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    grid-area: text;
+    justify-self: start;
+    color: blue;
+}
+
+label img {
+    width: 0;
+    grid-area: img;
+    transition: 400ms;
+}
+
+label svg {
+    width: 16px;
+    height: 16px;
+    grid-area: arrow;
+    transition: 200ms;
+    fill: blue;
+}
+
+label:has(input:checked) {
+    row-gap: .8em;
+}
+
+label:has(input:checked) p {
+    color: black;
+}
+
+label:has(input:checked) img {
+    width: 80%;
+}
+
+label:has(input:checked) svg {
+    transform: rotate(-180deg);
+    fill: black;
+}
+
+@media (hover: hover) {
+    label:hover {
+        row-gap: .8em;
+        cursor: pointer;
+    }
+    .bayan:has(label:hover) p{
+        color: black;
+    }
+
+    label:hover img {
+        width: 80%;
+    }
+
+    label:hover svg {
+        transform: rotate(-180deg);
+    }
+    .bayan:has(label:hover) svg {
+        fill: black;
+    }
+
+}
+
+@media (min-width: 820px) {
+    .bayan {
+        width: 70%;
+        max-width: 50em;
+    }
+    label p {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .bayan {
+        max-width: 70em;
+    }
+    label p {
+        font-size: 24px;
+    }
+
+    label img {
+        max-width: 700px;
+    }
+
+    label svg {
+        width: 26px;
+        height: 26px;
+    }
+}
