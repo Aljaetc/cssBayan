@@ -5,13 +5,12 @@
 label {
     display: grid;
     min-height: 3em;
-    padding: .8em 1em 1.3em;
+    padding: .8em 1em;
     border-bottom: 1px solid gray;
-    border-radius: 1em;
     grid-template-areas:
-                "text text text text text . arrow"
-                "img img img img img img img";
-    grid-template-columns: repeat(6, 1fr) 40px;
+                "text . arrow"
+                "img img img";
+    grid-template-columns: 1fr 1.2em 2em;
     place-items: center;
 }
 
@@ -19,18 +18,53 @@ label p {
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
     grid-area: text;
-    padding-bottom: .8em;
+    justify-self: start;
+    color: blue;
 }
 
 label img {
-    display: block;
-    width: 80%;
+    width: 0;
     grid-area: img;
+    transition: 400ms;
 }
 
 label svg {
     width: 16px;
     height: 16px;
     grid-area: arrow;
+    transition: 200ms;
 }
 
+label:has(input:checked) {
+    row-gap: .8em;
+}
+
+label:has(input:checked) p {
+    color: black;
+}
+
+label:has(input:checked) img {
+    width: 80%;
+}
+
+label:has(input:checked) svg {
+    transform: rotate(-180deg);
+}
+
+@media (hover: hover) {
+    label:hover {
+        row-gap: .8em;
+    }
+
+    label:hover img {
+        width: 80%;
+    }
+
+    label:hover svg {
+        transform: rotate(-180deg);
+    }
+
+    .bayan:has(label:hover) p{
+        color: black;
+    }
+}
