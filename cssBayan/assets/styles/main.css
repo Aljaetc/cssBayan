@@ -70,6 +70,7 @@ label:has(input:checked) svg {
 @media (hover: hover) {
     label:hover {
         row-gap: .8em;
+        cursor: pointer;
     }
     .bayan:has(label:hover) p{
         color: black;
